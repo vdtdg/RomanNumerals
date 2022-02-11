@@ -20,13 +20,13 @@ class RomanNumeralTranslator:
 
     @staticmethod
     def to_int(roman):
-        rest = roman[::-1]  # Reverse the string, allow a more readable algorithm
+        rest = roman
         ret = 0
         while rest != '':
             buffer = 0
             nb_char = 1
             for i in range(len(rest)):
-                thing_to_lookup = rest[:i + 1]
+                thing_to_lookup = rest[-1 - i:]
                 temp = RomanNumeralTranslator.roman_to_integer_lookup.get(thing_to_lookup, None)
                 if temp is None:
                     break
@@ -34,7 +34,7 @@ class RomanNumeralTranslator:
                     buffer = temp
                     nb_char = i + 1
             ret += buffer
-            rest = rest[nb_char:]
+            rest = rest[:-nb_char]
         return ret
 
     @staticmethod

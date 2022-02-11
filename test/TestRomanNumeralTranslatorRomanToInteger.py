@@ -46,14 +46,17 @@ class TestRomanNumeralTranslatorRomanToInteger(TestCase):
     def test_XX_is_20(self):
         self.assertEqual(20, RomanNumeralTranslator.to_int('XX'))
 
+    def test_XLII_is_42(self):
+        self.assertEqual(42, RomanNumeralTranslator.to_int('XLII'))
+
     def test_LIV_is_54(self):
         self.assertEqual(54, RomanNumeralTranslator.to_int('LIV'))
 
     def test_MCDXCII_is_1492(self):
-        self.assertEqual(1492, RomanNumeralTranslator.to_roman('MCDXCII'))
+        self.assertEqual(1492, RomanNumeralTranslator.to_int('MCDXCII'))
 
     def test_MMMMMMCDXXXV_is_6435(self):
-        self.assertEqual(6435, RomanNumeralTranslator.to_roman('MMMMMMCDXXXV'))
+        self.assertEqual(6435, RomanNumeralTranslator.to_int('MMMMMMCDXXXV'))
 
     def test_M_hundred_times_is_100000(self):
-        self.assertEqual(100000, RomanNumeralTranslator.to_roman('M' * 100))
+        self.assertEqual(100000, RomanNumeralTranslator.to_int('M' * 100))
